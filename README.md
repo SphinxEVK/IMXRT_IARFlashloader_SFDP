@@ -20,6 +20,8 @@
 >       
 > 2. **"/IMXRT_IARFlashloader/sfdp/port/sfdp_port.c"** 是移植文件，若有需求移植sfdp组件，需要自行适配平台。
 
+**总结:`IAR flashloader`的适配主要在`/IMXRT_IARFlashloader/device.c`中完成，对`SFDP框架`的适配在`/IMXRT_IARFlashloader/sfdp/port/sfdp_port.c`中完成。**
+
 ---
 
 **SFDP作为相对独立的组件，可参考[SFUD](https://github.com/armink/SFUD)的移植说明自行移植到其他平台:**
