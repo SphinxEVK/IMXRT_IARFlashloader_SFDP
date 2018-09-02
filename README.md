@@ -32,6 +32,22 @@
 
 ---
 
+**flashloader使用了以下SFDP标准指令:**
+
+`normal read: 0x03`, `write enable: 0x06`, `write enable(volatile): 0x50(**unused**)`, `erase chip: 0xC7`, `page program: 0x02`, `write status: 0x01`, `read status: 0x05`
+
+**从flash SFDP数据表中读取了以下指令:**
+
+`erase sector: flash_table[n].sfdp_table->DWORD1.erase_4k_cmd`
+
+**从flash SFDP数据表中还可以额外读取以下指令(若flash不支持, 则指令值为0x00):**
+
+`1-1-1 fastread`, `1-2-2 fastread`, `2-2-2 fastread`, `4-4-4 fastread`, `erase type 1`, `erase type 2`, `erase type 3`, `erase type 4`
+
+**如何具体解析SFDP数据表，请参考[SFDP216协议](https://www.lijingquan.net/wp-content/uploads/2017/07/JESD216.pdf)文档**
+
+---
+
 **LOG输出样例**
 
 ![image](https://github.com/SphinxEVK/IMXRT_IARFlashloader_SFDP/blob/master/log.png)
