@@ -2,7 +2,9 @@
 
 #### 本工程面向i.MXRT1052型MCU，实现了基于[SFDP216协议](https://www.lijingquan.net/wp-content/uploads/2017/07/JESD216.pdf)的自适配IAR flashloader。理论上可以支持绝大多数2011年以后生产的，支持JEDEC SFDP标准的qspi-flash。
 
-工程的基本结构如下:
+---
+
+**工程的基本结构如下:**
 
 **"/IMXRT_IARFlashloader/Flashloader/"**: 该路径下有多个文件夹，是针对市面上目前存在的多款RT1052开发板建立的flashloader。使用对应文件夹下的.board, .flash和.out文件当作代码工程的flashloader，可以实现将代码下载至片外flash。
 
