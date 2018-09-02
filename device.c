@@ -137,8 +137,11 @@ static uint32_t erase_chip(void) {
 
 static uint32_t signoff(void) {
     SFDP_DEBUG("Complete! Flashloader signing off..");
+    SFDP_DEBUG("Deinit FLEXSPI, LPUART1 Done.");
+    
     FLEXSPI_Deinit(FLEXSPI);
     LPUART_Deinit(LPUART1);
+    
     return RESULT_OK;
 }
 
@@ -202,12 +205,11 @@ static void flexspi_set_lut(void) {
     
     /* SFDP instructions rely on device SFDP parameter table */
     
-    
-    /* Fast read quad mode - SDR */
-    flash_lut[4*NOR_CMD_LUT_SEQ_IDX_READ_FAST_QUAD] =
-        FLEXSPI_LUT_SEQ(kFLEXSPI_Command_SDR, kFLEXSPI_1PAD, flash_table[0].sfdp_table->DWORD3.fastread_114_cmd, kFLEXSPI_Command_RADDR_SDR, kFLEXSPI_1PAD, (flash_table[0].addr_in_4_byte==true)?32:24);
-    flash_lut[4*NOR_CMD_LUT_SEQ_IDX_READ_FAST_QUAD+1] = 
-        FLEXSPI_LUT_SEQ(kFLEXSPI_Command_DUMMY_SDR, kFLEXSPI_4PAD, flash_table[0].sfdp_table->DWORD3.dummy_clocks_before_114_output, kFLEXSPI_Command_READ_SDR, kFLEXSPI_4PAD, FLEXSPI_INSTRUCTION_OPERAND_ANY_NONE_ZERO_VALUE);
+    ///* Fast read quad mode - SDR */
+    //flash_lut[4*NOR_CMD_LUT_SEQ_IDX_READ_FAST_QUAD] =
+    //    FLEXSPI_LUT_SEQ(kFLEXSPI_Command_SDR, kFLEXSPI_1PAD, flash_table[0].sfdp_table->DWORD3.fastread_114_cmd, kFLEXSPI_Command_RADDR_SDR, kFLEXSPI_1PAD, (flash_table[0].addr_in_4_byte==true)?32:24);
+    //flash_lut[4*NOR_CMD_LUT_SEQ_IDX_READ_FAST_QUAD+1] = 
+    //    FLEXSPI_LUT_SEQ(kFLEXSPI_Command_DUMMY_SDR, kFLEXSPI_4PAD, flash_table[0].sfdp_table->DWORD3.dummy_clocks_before_114_output, kFLEXSPI_Command_READ_SDR, kFLEXSPI_4PAD, FLEXSPI_INSTRUCTION_OPERAND_ANY_NONE_ZERO_VALUE);
 
     /* Erase Sector  */
     flash_lut[4*NOR_CMD_LUT_SEQ_IDX_ERASESECTOR] =
@@ -219,7 +221,7 @@ static void flexspi_set_lut(void) {
     }
     
     FLEXSPI_UpdateLUT(FLEXSPI, 0, flash_lut, sizeof(flash_lut)/sizeof(uint32_t));
-    SFDP_DEBUG("Set FlexSPI LUT Done.");
+    SFDP_DEBUG("Update FlexSPI LUT Done.");
 }
 
 static void flexspi_init(void) {
@@ -231,7 +233,7 @@ static void flexspi_init(void) {
     	.enableSckFreeRunning = false,
     	.enableCombination = false,
     	.enableDoze = true,
-    	.enableHalfSpeedAccess = false,
+    	.enableHalfSpeedAccess = true,
     	.enableSckBDiffOpt = false,
     	.enableSameConfigForAll = false,
     	.seqTimeoutCycle = 0xFFFFU,
@@ -262,7 +264,7 @@ static void flexspi_init(void) {
         .enableWordAddress = 0,
         .AWRSeqIndex = 0,
         .AWRSeqNumber = 0,
-        .ARDSeqIndex = NOR_CMD_LUT_SEQ_IDX_READ_FAST_QUAD, //NOR_CMD_LUT_SEQ_IDX_READ_NORMAL, //NOR_CMD_LUT_SEQ_IDX_READ_FAST_QUAD,
+        .ARDSeqIndex = NOR_CMD_LUT_SEQ_IDX_READ_NORMAL,
         .ARDSeqNumber = 1,
         .AHBWriteWaitUnit = kFLEXSPI_AhbWriteWaitUnit2AhbCycle,
         .AHBWriteWaitInterval = 0,
