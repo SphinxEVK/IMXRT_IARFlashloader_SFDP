@@ -1,6 +1,6 @@
 # IMXRT_IARFlashloader_sfdp
 
-## 本工程面向i.MXRT1052型MCU，实现了基于[SFDP216协议](https://www.lijingquan.net/wp-content/uploads/2017/07/JESD216.pdf)的自适配IAR flashloader。理论上可以支持绝大多数2011年以后生产的，支持JEDEC SFDP标准的qspi-flash。
+#### 本工程面向i.MXRT1052型MCU，实现了基于[SFDP216协议](https://www.lijingquan.net/wp-content/uploads/2017/07/JESD216.pdf)的自适配IAR flashloader。理论上可以支持绝大多数2011年以后生产的，支持JEDEC SFDP标准的qspi-flash。
 
 工程的基本结构如下:
 
@@ -17,7 +17,7 @@
 	      2. "/IMXRT_IARFlashloader/sfdp/port/sfdp_port.c" 是移植文件，若有需求移植sfdp组件，需要自行适配平台。
 
 
-*sfdp作为相对独立的组件，可参考[SFUD](https://github.com/armink/SFUD)的移植说明自行移植到其他平台：*
+**sfdp作为相对独立的组件，可参考[SFUD](https://github.com/armink/SFUD)的移植说明自行移植到其他平台：**
 
 > ### 2.4 移植说明
 
