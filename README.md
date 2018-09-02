@@ -21,8 +21,6 @@
 > 2. **"/IMXRT_IARFlashloader/sfdp/port/sfdp_port.c"** 是移植文件，若有需求移植sfdp组件，需要自行适配平台。
 
 ---
-<<<<<<< HEAD
-<<<<<<< HEAD
 
 **SFDP作为相对独立的组件，可参考[SFUD](https://github.com/armink/SFUD)的移植说明自行移植到其他平台:**
 
@@ -36,19 +34,3 @@
 
 ![image](https://github.com/SphinxEVK/IMXRT_IARFlashloader_SFDP/blob/master/log.png)
 
-=======
-
-**SFDP作为相对独立的组件，可参考[SFUD](https://github.com/armink/SFUD)的移植说明自行移植到其他平台:**
-
-> ### 2.4 移植说明
-> 
-> 移植文件位于 `/sfud/port/sfud_port.c` ，文件中的 `sfud_err sfud_spi_port_init(sfud_flash *flash)` 方法是库提供的移植方法，在里面完成各个设备 SPI 读写驱动（必选）、重试次数（必选）、重试接口（可选）及 SPI 锁（可选）的配置。更加详细的移植内容，可以参考 demo 中的各个平台的移植文件。
->>>>>>> 23af77ad74291c682850d7ad70b0a478a4ce468e
-=======
-
-**SFDP作为相对独立的组件，可参考[SFUD](https://github.com/armink/SFUD)的移植说明自行移植到其他平台:**
-
-> ### 2.4 移植说明
-> 
-> 移植文件位于 `/sfud/port/sfud_port.c` ，文件中的 `sfud_err sfud_spi_port_init(sfud_flash *flash)` 方法是库提供的移植方法，在里面完成各个设备 SPI 读写驱动（必选）、重试次数（必选）、重试接口（可选）及 SPI 锁（可选）的配置。更加详细的移植内容，可以参考 demo 中的各个平台的移植文件。
->>>>>>> 23af77ad74291c682850d7ad70b0a478a4ce468e
