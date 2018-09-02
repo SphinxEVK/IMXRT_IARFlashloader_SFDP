@@ -6,7 +6,7 @@
 
 **工程的基本结构如下:**
 
-**"/IMXRT_IARFlashloader/Flashloader/"**: 该路径下有多个文件夹，是针对市面上目前存在的多款RT1052开发板建立的flashloader。使用对应文件夹下的.board, .flash和.out文件当作代码工程的flashloader，可以实现将代码下载至片外flash。
+**"/IMXRT_IARFlashloader/Flashloader/"**: Readonly. 该路径下有多个文件夹，是针对市面上目前存在的多款RT1052开发板建立的flashloader，仅作为参考使用，与本工程代码无关。使用对应文件夹下的.board, .flash和.out文件当作代码工程的flashloader，可以实现将代码下载至片外flash。
 
 **"/IMXRT_IARFlashloader/Framework/"**: Readonly. IAR提供的Flashloader框架代码，无需修改任何内容。编写flashloader的关键在于需要自行实现FlashInit, FlashWrite和FlashErase三个函数的实现。
 
