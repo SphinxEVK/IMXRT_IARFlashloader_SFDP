@@ -20,7 +20,7 @@
 >       
 > 2. **"/IMXRT_IARFlashloader/sfdp/port/sfdp_port.c"** 是移植文件，若有需求移植sfdp组件，需要自行适配平台。
 
-*对`IAR flashloader`框架的适配主要在`/IMXRT_IARFlashloader/device.c`中完成，对`SFDP`框架的适配在`/IMXRT_IARFlashloader/sfdp/port/sfdp_port.c`中完成。*
+本工程对`IAR flashloader`框架的适配主要在`/IMXRT_IARFlashloader/device.c`中完成，对`SFDP`框架的适配在`/IMXRT_IARFlashloader/sfdp/port/sfdp_port.c`中完成。
 
 ---
 
