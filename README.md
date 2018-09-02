@@ -16,7 +16,7 @@
 
 **"/IMXRT_IARFlashloader/sfdp/**": 由[SFUD](https://github.com/armink/SFUD)项目修改而来的，基于[SFDP216协议](https://www.lijingquan.net/wp-content/uploads/2017/07/JESD216.pdf)的flash自适配框架。
 	
-> 1. **"/IMXRT_IARFlashloader/sfdp/inc/sfdp_cfg.h"** 中可通过设置`SFDP_DEBUG_MODE`, 来选择是否打LOG。默认使用`LPUART1`输出，如需修改，请自行适配**sfdp_port.c**.
+> 1. **"/IMXRT_IARFlashloader/sfdp/inc/sfdp_cfg.h"** 中可通过设置`SFDP_DEBUG_MODE`, 来选择是否打LOG。默认使用`LPUART1`输出，如需修改，请自行适配`sfdp_port.c`.
 >       
 > 2. **"/IMXRT_IARFlashloader/sfdp/port/sfdp_port.c"** 是移植文件，若有需求移植sfdp组件，需要自行适配平台。
 
