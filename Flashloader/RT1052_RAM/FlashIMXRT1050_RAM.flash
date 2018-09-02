@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<flash_device>
+  <exe>$PROJ_DIR$\Flashloader\RT1052_RAM\FlashIMXRT1050_RAM.out</exe>
+  <page>16</page>
+  <block>1 0x1F800000</block>
+  <flash_base>0x60000000</flash_base>
+  <macro>$TOOLKIT_DIR$\config\flashloader\NXP\FlashIMXRT1050_EVK_FlexSPI.mac</macro>
+  <aggregate>1</aggregate>
+  <args_doc>After the programming [--setQE] argument will leave QE bit in S25W QSPI flash Status register set.
+[--clrQE] will leave the bit cleared.</args_doc>
+</flash_device>

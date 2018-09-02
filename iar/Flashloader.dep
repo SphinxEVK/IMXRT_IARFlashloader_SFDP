@@ -1,0 +1,680 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project>
+    <fileVersion>2</fileVersion>
+    <fileChecksum>3760383899</fileChecksum>
+    <configuration>
+        <name>RT1052_SphinxEVK</name>
+        <outputs>
+            <file>$PROJ_DIR$\..\Drivers\clock_config.c</file>
+            <file>$PROJ_DIR$\..\Framework\flash_loader_asm.s</file>
+            <file>$PROJ_DIR$\..\sfdp\src\sfdp.c</file>
+            <file>$PROJ_DIR$\..\Drivers\fsl_flexspi.c</file>
+            <file>$PROJ_DIR$\..\device.c</file>
+            <file>$PROJ_DIR$\..\sfud\inc\sfud_cfg.h</file>
+            <file>$PROJ_DIR$\..\Framework\flash_loader.c</file>
+            <file>$PROJ_DIR$\RT1052_SphinxEVK\Obj\flash_loader.pbi</file>
+            <file>$PROJ_DIR$\..\sfdp\port\sfdp_port.c</file>
+            <file>$PROJ_DIR$\RT1052_SphinxEVK\Obj\fsl_clock.pbi</file>
+            <file>$TOOLKIT_DIR$\inc\c\stdarg.h</file>
+            <file>$PROJ_DIR$\RT1052_SphinxEVK\Obj\fsl_lpuart.o</file>
+            <file>$PROJ_DIR$\..\Flashloader_IMXRT.c</file>
+            <file>$PROJ_DIR$\..\Drivers\fsl_lpspi.h</file>
+            <file>$PROJ_DIR$\..\Drivers\fsl_clock.c</file>
+            <file>$PROJ_DIR$\..\Drivers\fsl_iomuxc.h</file>
+            <file>$TOOLKIT_DIR$\inc\c\cmsis_iar.h</file>
+            <file>$PROJ_DIR$\..\sfdp\inc\sfdp_cfg.h</file>
+            <file>$PROJ_DIR$\RT1052_SphinxEVK\Obj\fsl_flexspi.__cstat.et</file>
+            <file>$PROJ_DIR$\..\Drivers\fsl_lpuart.c</file>
+            <file>$PROJ_DIR$\RT1052_SphinxEVK\Obj\fsl_clock.o</file>
+            <file>$PROJ_DIR$\RT1052_SphinxEVK\Obj\sfdp_port.__cstat.et</file>
+            <file>$PROJ_DIR$\..\Drivers\fsl_lpspi.c</file>
+            <file>$PROJ_DIR$\..\FSL_Drivers\fsl_device_registers.h</file>
+            <file>$PROJ_DIR$\..\FSL_Drivers\core_cm7.h</file>
+            <file>$PROJ_DIR$\..\FSL_Drivers\clock_config.h</file>
+            <file>$PROJ_DIR$\..\FSL_Drivers\fsl_lpspi.h</file>
+            <file>$TOOLKIT_DIR$\inc\c\stdlib.h</file>
+            <file>$TOOLKIT_DIR$\inc\c\assert.h</file>
+            <file>$PROJ_DIR$\RT1052_SphinxEVK\Obj\fsl_lpspi.pbi</file>
+            <file>$PROJ_DIR$\RT1052_SphinxEVK\Obj\device.o</file>
+            <file>$PROJ_DIR$\RT1052_SphinxEVK\Obj\sfud.pbi</file>
+            <file>$TOOLKIT_DIR$\inc\c\DLib_Product_stdlib.h</file>
+            <file>$PROJ_DIR$\RT1052_SphinxEVK\Obj\sfud_port.o</file>
+            <file>$PROJ_DIR$\..\Framework\flash_loader_extra.h</file>
+            <file>$PROJ_DIR$\..\Drivers\MIMXRT1052_features.h</file>
+            <file>$TOOLKIT_DIR$\lib\dl7M_tln.a</file>
+            <file>$TOOLKIT_DIR$\inc\c\DLib_Config_Normal.h</file>
+            <file>$TOOLKIT_DIR$\lib\m7M_tl.a</file>
+            <file>$PROJ_DIR$\RT1052_SphinxEVK\Exe\Flashloader.bin</file>
+            <file>$PROJ_DIR$\RT1052_SphinxEVK\Exe\RT1052_SphinxEVK.out</file>
+            <file>$PROJ_DIR$\..\Framework\Modified\flash_config.h</file>
+            <file>$PROJ_DIR$\RT1052_SphinxEVK\Obj\fsl_flexspi.o</file>
+            <file>$PROJ_DIR$\RT1052_SphinxEVK\Obj\clock_config.__cstat.et</file>
+            <file>$PROJ_DIR$\RT1052_SphinxEVK\Obj\sfdp.o</file>
+            <file>$PROJ_DIR$\..\sfud\inc\sfud_def.h</file>
+            <file>$PROJ_DIR$\..\sfud\src\sfud.c</file>
+            <file>$TOOLKIT_DIR$\inc\c\DLib_Product.h</file>
+            <file>$PROJ_DIR$\RT1052_SphinxEVK\List\RT1052_SphinxEVK.map</file>
+            <file>$PROJ_DIR$\RT1052_SphinxEVK\Obj\Flashloader_IMXRT.pbi</file>
+            <file>$PROJ_DIR$\..\Drivers\fsl_lpuart.h</file>
+            <file>$TOOLKIT_DIR$\inc\c\stdint.h</file>
+            <file>$PROJ_DIR$\RT1052_SphinxEVK\Obj\Flashloader_IMXRT.o</file>
+            <file>$PROJ_DIR$\RT1052_SphinxEVK\Obj\clock_config.o</file>
+            <file>$PROJ_DIR$\RT1052_SphinxEVK\Obj\sfud_port.pbi</file>
+            <file>$PROJ_DIR$\..\sfud\inc\sfud.h</file>
+            <file>$PROJ_DIR$\..\Drivers\fsl_common.h</file>
+            <file>$PROJ_DIR$\..\Drivers\MIMXRT1052.h</file>
+            <file>$PROJ_DIR$\RT1052_SphinxEVK\Obj\device.pbi</file>
+            <file>$TOOLKIT_DIR$\inc\c\DLib_Defaults.h</file>
+            <file>$PROJ_DIR$\..\Drivers\mpu_armv7.h</file>
+            <file>$PROJ_DIR$\RT1052_SphinxEVK\Obj\fsl_lpuart.__cstat.et</file>
+            <file>$PROJ_DIR$\RT1052_SphinxEVK\Obj\sfdp.__cstat.et</file>
+            <file>$TOOLKIT_DIR$\lib\rt7M_tl.a</file>
+            <file>$PROJ_DIR$\RT1052_SphinxEVK\Obj\clock_config.pbi</file>
+            <file>$TOOLKIT_DIR$\inc\c\stdio.h</file>
+            <file>$PROJ_DIR$\..\Drivers\system_MIMXRT1052.h</file>
+            <file>$TOOLKIT_DIR$\inc\c\intrinsics.h</file>
+            <file>$TOOLKIT_DIR$\inc\c\ysizet.h</file>
+            <file>$PROJ_DIR$\..\sfud\src\sfud_sfdp.c</file>
+            <file>$PROJ_DIR$\RT1052_SphinxEVK\Obj\fsl_lpuart.pbi</file>
+            <file>$PROJ_DIR$\RT1052_SphinxEVK\Obj\sfud.__cstat.et</file>
+            <file>$PROJ_DIR$\RT1052_SphinxEVK\Obj\Flashloader_IMXRT.__cstat.et</file>
+            <file>$PROJ_DIR$\RT1052_SphinxEVK\Obj\sfud_sfdp.o</file>
+            <file>$PROJ_DIR$\RT1052_SphinxEVK\Obj\fsl_flexspi.pbi</file>
+            <file>$TOOLKIT_DIR$\inc\c\DLib_Product_string.h</file>
+            <file>$PROJ_DIR$\RT1052_SphinxEVK\Obj\sfdp.pbi</file>
+            <file>$PROJ_DIR$\RT1052_SphinxEVK\Obj\fsl_clock.__cstat.et</file>
+            <file>$PROJ_DIR$\RT1052_SphinxEVK\Obj\sfud_sfdp.pbi</file>
+            <file>$TOOLKIT_DIR$\inc\c\yvals.h</file>
+            <file>$PROJ_DIR$\RT1052_SphinxEVK\Obj\flash_loader.o</file>
+            <file>$PROJ_DIR$\..\Drivers\clock_config.h</file>
+            <file>$TOOLKIT_DIR$\inc\c\stdbool.h</file>
+            <file>$PROJ_DIR$\..\sfud\inc\sfud_flash_def.h</file>
+            <file>$PROJ_DIR$\RT1052_SphinxEVK\Obj\flash_loader_asm.o</file>
+            <file>$PROJ_DIR$\RT1052_SphinxEVK\Obj\device.__cstat.et</file>
+            <file>$PROJ_DIR$\..\sfdp\inc\sfdp_def.h</file>
+            <file>$PROJ_DIR$\RT1052_SphinxEVK\Obj\sfud_sfdp.__cstat.et</file>
+            <file>$TOOLKIT_DIR$\inc\c\string.h</file>
+            <file>$PROJ_DIR$\..\device.h</file>
+            <file>$PROJ_DIR$\RT1052_SphinxEVK\Obj\Flashloader.pbd</file>
+            <file>$PROJ_DIR$\..\FSL_Drivers\fsl_common.h</file>
+            <file>$PROJ_DIR$\RT1052_SphinxEVK\Obj\sfud_port.__cstat.et</file>
+            <file>$TOOLKIT_DIR$\inc\c\stddef.h</file>
+            <file>$PROJ_DIR$\RT1052_SphinxEVK\Obj\fsl_lpspi.o</file>
+            <file>$TOOLKIT_DIR$\inc\c\ycheck.h</file>
+            <file>$PROJ_DIR$\..\FSL_Drivers\fsl_lpuart.h</file>
+            <file>$PROJ_DIR$\..\FSL_Drivers\system_MIMXRT1052.h</file>
+            <file>$PROJ_DIR$\..\Drivers\fsl_clock.h</file>
+            <file>$PROJ_DIR$\..\FSL_Drivers\fsl_clock.h</file>
+            <file>$TOOLKIT_DIR$\inc\c\iccarm_builtin.h</file>
+            <file>$PROJ_DIR$\..\FSL_Drivers\cmsis_version.h</file>
+            <file>$PROJ_DIR$\..\sfud\port\sfud_port.c</file>
+            <file>$PROJ_DIR$\..\FSL_Drivers\fsl_flexspi.h</file>
+            <file>$PROJ_DIR$\..\sfdp\inc\sfdp.h</file>
+            <file>$PROJ_DIR$\..\Drivers\cmsis_compiler.h</file>
+            <file>$PROJ_DIR$\..\Drivers\cmsis_version.h</file>
+            <file>$PROJ_DIR$\RT1052_SphinxEVK\Obj\fsl_lpspi.__cstat.et</file>
+            <file>$PROJ_DIR$\..\Drivers\core_cm7.h</file>
+            <file>$PROJ_DIR$\RT1052_SphinxEVK\Obj\sfdp_port.pbi</file>
+            <file>$PROJ_DIR$\..\FSL_Drivers\MIMXRT1052_features.h</file>
+            <file>$PROJ_DIR$\..\Framework\flash_loader.h</file>
+            <file>$PROJ_DIR$\..\Drivers\fsl_device_registers.h</file>
+            <file>$PROJ_DIR$\RT1052_SphinxEVK\Obj\sfud.o</file>
+            <file>$PROJ_DIR$\RT1052_SphinxEVK\Obj\sfdp_port.o</file>
+            <file>$PROJ_DIR$\..\FSL_Drivers\fsl_iomuxc.h</file>
+            <file>$PROJ_DIR$\..\FlashIMXRT1050_RAM512K.icf</file>
+            <file>$PROJ_DIR$\..\FSL_Drivers\cmsis_compiler.h</file>
+            <file>$PROJ_DIR$\..\FSL_Drivers\MIMXRT1052.h</file>
+            <file>$PROJ_DIR$\..\FSL_Drivers\mpu_armv7.h</file>
+            <file>$PROJ_DIR$\RT1052_SphinxEVK\Obj\flash_loader.__cstat.et</file>
+            <file>$PROJ_DIR$\RT1052_SphinxEVK\Obj\fsl_common.pbi</file>
+            <file>$PROJ_DIR$\RT1052_SphinxEVK\Obj\fsl_common.o</file>
+            <file>$PROJ_DIR$\..\FSL_Drivers\fsl_common.c</file>
+            <file>$PROJ_DIR$\..\FSL_Drivers\fsl_lpspi.c</file>
+            <file>$PROJ_DIR$\..\FSL_Drivers\fsl_flexspi.c</file>
+            <file>$PROJ_DIR$\..\FSL_Drivers\fsl_clock.c</file>
+            <file>$PROJ_DIR$\..\FSL_Drivers\fsl_lpuart.c</file>
+            <file>$PROJ_DIR$\RT1052_SphinxEVK\Obj\fsl_common.__cstat.et</file>
+            <file>$PROJ_DIR$\..\FSL_Drivers\clock_config.c</file>
+        </outputs>
+        <file>
+            <name>$PROJ_DIR$\..\Drivers\clock_config.c</name>
+            <outputs>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 64</file>
+                </tool>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 43</file>
+                </tool>
+            </outputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\Framework\flash_loader_asm.s</name>
+            <outputs>
+                <tool>
+                    <name>AARM</name>
+                    <file> 84</file>
+                </tool>
+            </outputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\sfdp\src\sfdp.c</name>
+            <outputs>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 76</file>
+                </tool>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 44</file>
+                </tool>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 62</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 17 86 79 65 82 59 51 88 95 68 104 37 47 75</file>
+                </tool>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 104 86 65 95 79 59 37 47 68 51 82 88 75 17</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\Drivers\fsl_flexspi.c</name>
+            <outputs>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 74</file>
+                </tool>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 42</file>
+                </tool>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 18</file>
+                </tool>
+            </outputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\device.c</name>
+            <outputs>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 58</file>
+                </tool>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 30</file>
+                </tool>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 85</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 95 23 79 68 91 82 111 97 119 16 41 26 89 88 99 59 118 101 100 86 96 103 104 28 51 27 93 37 47 75 32 110 24 117 65 17 115</file>
+                </tool>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 115 91 28 95 79 59 37 47 82 51 88 68 75 27 32 93 23 118 24 101 117 16 100 119 97 110 99 96 26 103 111 41 104 86 65 17 89</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\Framework\flash_loader.c</name>
+            <outputs>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 7</file>
+                </tool>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 80</file>
+                </tool>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 120</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 37 41 95 34 51 79 47 111 59</file>
+                </tool>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 111 41 51 95 79 59 37 47 34</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\sfdp\port\sfdp_port.c</name>
+            <outputs>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 109</file>
+                </tool>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 114</file>
+                </tool>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 21</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 79 28 75 88 95 59 51 26 68 23 99 110 24 25 91 82 32 117 104 96 115 37 47 86 65 17 27 93 118 97 101 119 16 100 10</file>
+                </tool>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 104 86 65 95 79 59 37 47 68 51 82 88 75 17 96 91 28 27 32 93 23 118 24 101 117 16 100 119 97 110 99 26 115 25</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\Flashloader_IMXRT.c</name>
+            <outputs>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 49</file>
+                </tool>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 52</file>
+                </tool>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 72</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 79 82 32 117 51 100 91 27 34 68 95 65 88 111 89 75 23 99 110 24 28 67 59 37 47 41 118 93 97 101 119 16</file>
+                </tool>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 67 100 79 59 37 47 65 95 68 27 32 88 75 51 111 41 34 89 91 28 82 93 23 118 24 101 117 16 119 97 110 99</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\Drivers\fsl_clock.c</name>
+            <outputs>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 9</file>
+                </tool>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 20</file>
+                </tool>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 77</file>
+                </tool>
+            </outputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\Drivers\fsl_lpuart.c</name>
+            <outputs>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 70</file>
+                </tool>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 11</file>
+                </tool>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 61</file>
+                </tool>
+            </outputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\Drivers\fsl_lpspi.c</name>
+            <outputs>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 29</file>
+                </tool>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 94</file>
+                </tool>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 107</file>
+                </tool>
+            </outputs>
+        </file>
+        <file>
+            <name>[ROOT_NODE]</name>
+            <outputs>
+                <tool>
+                    <name>ILINK</name>
+                    <file> 40 48</file>
+                </tool>
+            </outputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\RT1052_SphinxEVK\Exe\RT1052_SphinxEVK.out</name>
+            <outputs>
+                <tool>
+                    <name>ILINK</name>
+                    <file> 48</file>
+                </tool>
+                <tool>
+                    <name>OBJCOPY</name>
+                    <file> 39</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ILINK</name>
+                    <file> 116 53 30 80 84 52 20 122 42 94 11 44 114 63 38 36</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\sfud\src\sfud.c</name>
+            <outputs>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 31</file>
+                </tool>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 113</file>
+                </tool>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 71</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 65 79 83 59 75 82 95 88 45 51 5 68 37 47 55</file>
+                </tool>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 55 45 65 95 79 59 37 47 68 51 82 5 83 88 75</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\sfud\src\sfud_sfdp.c</name>
+            <outputs>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 78</file>
+                </tool>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 73</file>
+                </tool>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 87</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 5 95 37 51 68 47 55 45 65 82 83 79 59</file>
+                </tool>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 55 45 65 95 79 59 37 47 68 51 82 5 83</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\sfud\port\sfud_port.c</name>
+            <outputs>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 54</file>
+                </tool>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 33</file>
+                </tool>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 92</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 79 37 95 51 100 82 13 5 68 93 57 106 88 81 45 47 75 28 27 66 60 16 112 56 10 50 15 65 83 59 98 32 35 108 105 55</file>
+                </tool>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 55 45 65 95 79 59 37 47 68 51 82 5 83 88 75 50 56 28 27 32 93 112 57 108 106 105 16 100 60 66 35 98 13 15 81</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\FSL_Drivers\fsl_common.c</name>
+            <outputs>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 121</file>
+                </tool>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 122</file>
+                </tool>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 128</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 23 99 118 51 88 59 95 79 82 68 97 117 28 27 93 37 47 75 32 110 24 91 101 119 16 100</file>
+                </tool>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 91 28 95 79 59 37 47 82 51 88 68 75 27 32 93 23 118 24 101 117 16 100 119 97 110 99</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\FSL_Drivers\fsl_lpspi.c</name>
+            <outputs>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 29</file>
+                </tool>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 94</file>
+                </tool>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 107</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 23 100 95 99 59 88 118 101 82 79 68 97 119 16 28 91 51 27 93 37 47 75 32 110 24 117 26</file>
+                </tool>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 26 91 28 95 79 59 37 47 82 51 88 68 75 27 32 93 23 118 24 101 117 16 100 119 97 110 99</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\FSL_Drivers\fsl_flexspi.c</name>
+            <outputs>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 74</file>
+                </tool>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 42</file>
+                </tool>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 18</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 59 93 68 91 95 51 117 100 79 28 110 24 16 27 103 23 37 47 118 97 101 119 82 88 99 75 32</file>
+                </tool>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 103 93 95 79 59 37 47 68 23 118 24 51 101 117 16 100 119 97 110 91 28 82 88 75 27 32 99</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\FSL_Drivers\fsl_clock.c</name>
+            <outputs>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 9</file>
+                </tool>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 20</file>
+                </tool>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 77</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 79 24 93 75 95 51 37 110 28 27 47 99 82 88 23 59 68 32 117 91 118 97 101 119 16 100</file>
+                </tool>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 91 28 95 79 59 37 47 82 51 88 68 75 27 32 93 23 118 24 101 117 16 100 119 97 110 99</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\FSL_Drivers\fsl_lpuart.c</name>
+            <outputs>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 70</file>
+                </tool>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 11</file>
+                </tool>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 61</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 79 37 117 51 68 32 93 28 27 47 95 75 110 24 91 82 88 23 99 59 118 97 101 119 16 100 96</file>
+                </tool>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 96 91 28 95 79 59 37 47 82 51 88 68 75 27 32 93 23 118 24 101 117 16 100 119 97 110 99</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\FSL_Drivers\clock_config.c</name>
+            <outputs>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 64</file>
+                </tool>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 53</file>
+                </tool>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 43</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 95 23 24 99 59 91 88 110 82 79 68 51 28 27 93 37 47 75 32 117 25 118 97 101 119 16 100</file>
+                </tool>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 25 91 28 95 79 59 37 47 82 51 88 68 75 27 32 93 23 118 24 101 117 16 100 119 97 110 99</file>
+                </tool>
+            </inputs>
+        </file>
+        <forcedrebuild>
+            <name>$PROJ_DIR$\..\Drivers\clock_config.c</name>
+            <tool>C-STAT</tool>
+        </forcedrebuild>
+        <forcedrebuild>
+            <name>$PROJ_DIR$\..\Drivers\fsl_flexspi.c</name>
+            <tool>C-STAT</tool>
+        </forcedrebuild>
+        <forcedrebuild>
+            <name>$PROJ_DIR$\..\Drivers\fsl_clock.c</name>
+            <tool>C-STAT</tool>
+        </forcedrebuild>
+        <forcedrebuild>
+            <name>$PROJ_DIR$\..\Drivers\fsl_lpuart.c</name>
+            <tool>C-STAT</tool>
+        </forcedrebuild>
+        <forcedrebuild>
+            <name>$PROJ_DIR$\..\Drivers\fsl_lpspi.c</name>
+            <tool>C-STAT</tool>
+        </forcedrebuild>
+        <forcedrebuild>
+            <name>$PROJ_DIR$\..\sfud\port\sfud_port.c</name>
+            <tool>C-STAT</tool>
+        </forcedrebuild>
+        <forcedrebuild>
+            <name>$PROJ_DIR$\..\Drivers\clock_config.c</name>
+            <tool>ICCARM</tool>
+        </forcedrebuild>
+        <forcedrebuild>
+            <name>$PROJ_DIR$\..\Drivers\fsl_flexspi.c</name>
+            <tool>ICCARM</tool>
+        </forcedrebuild>
+        <forcedrebuild>
+            <name>$PROJ_DIR$\..\Drivers\fsl_clock.c</name>
+            <tool>ICCARM</tool>
+        </forcedrebuild>
+        <forcedrebuild>
+            <name>$PROJ_DIR$\..\Drivers\fsl_lpuart.c</name>
+            <tool>ICCARM</tool>
+        </forcedrebuild>
+        <forcedrebuild>
+            <name>$PROJ_DIR$\..\Drivers\fsl_lpspi.c</name>
+            <tool>ICCARM</tool>
+        </forcedrebuild>
+    </configuration>
+</project>

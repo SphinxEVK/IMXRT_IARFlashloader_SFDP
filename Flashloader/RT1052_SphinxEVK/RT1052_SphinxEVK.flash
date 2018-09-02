@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<flash_device>
+  <exe>$PROJ_DIR$\Flashloader\RT1052_SphinxEVK\RT1052_SphinxEVK.out</exe>
+  <page>256</page>
+  <block>4096 0x1000</block>
+  <flash_base>0x60000000</flash_base>
+  <aggregate>1</aggregate>
+  <args_doc>After the programming [--setQE] argument will leave QE bit in S25W QSPI flash Status register set.
+[--clrQE] will leave the bit cleared.</args_doc>
+</flash_device>

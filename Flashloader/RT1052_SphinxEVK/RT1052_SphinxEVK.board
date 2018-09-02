@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<flash_board>
+  <pass>
+    <loader>$PROJ_DIR$\Flashloader\RT1052_SphinxEVK\RT1052_SphinxEVK.flash</loader>
+    <range>CODE 0x60000000 0x7f7fffff</range>
+	<args>--setQE</args>
+  </pass>
+</flash_board>
+
+
