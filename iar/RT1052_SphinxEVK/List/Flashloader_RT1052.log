@@ -1,0 +1,7 @@
+Global:
+
+  Symbol          Redirected to         Reason
+  ------          -------------         ------
+  _Printf         _PrintfSmallNoMb      command line
+  _Scanf          _ScanfSmallNoMb       command line
+  __as_NullEntry  __as_NullEntryStrict  command line

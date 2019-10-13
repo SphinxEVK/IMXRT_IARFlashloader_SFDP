@@ -31,6 +31,7 @@
 
 #include "sfdp_def.h"
 
+extern void sfdp_log_debug(const char *file, const long line, const char *format, ...);
 sfdp_err sfdp_init(void);
 
 #endif

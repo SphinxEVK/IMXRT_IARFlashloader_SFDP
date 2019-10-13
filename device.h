@@ -13,10 +13,11 @@
 	#define CPU_MIMXRT1052
 #elif defined(SHAREBOARD)
 	#define CPU_MIMXRT1052
-#elif defined(MCIMXRT1020)
+#elif defined(SPHINX_DAP)
+        #define CPU_MIMXRT1021
 #endif
 
-#if defined(MCIMXRT1020)
+#if defined(CPU_MIMXRT1021)
 	#include "MIMXRT1021.h"
 #elif defined(CPU_MIMXRT1052)
 	#include "MIMXRT1052.h"

@@ -38,13 +38,18 @@
 
 /* flash型号备注, 不影响功能 */
 enum {
-    SFDP_W25Q256JV_DEVICE_INDEX = 0,
+    SFDP_W25QxxxJV_DEVICE_INDEX = 0,
+    SFDP_W25QxxxFV_DEVICE_INDEX = 1
 };
 
 #define SFDP_FLASH_DEVICE_TABLE                         \
 {                                                       \
-    [SFDP_W25Q256JV_DEVICE_INDEX] = {                   \
-        .name = "W25Q256JV",                            \
+    [SFDP_W25QxxxJV_DEVICE_INDEX] = {                   \
+        .name = "W25QxxxJV",                            \
+    },                                                  \
+                                                        \
+    [SFDP_W25QxxxFV_DEVICE_INDEX] = {                   \
+        .name = "W25QxxxFV",                            \
     },                                                  \
 }                      
 

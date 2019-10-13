@@ -28,6 +28,8 @@
 
 #include "sfdp.h"
 
+#include "fsl_lpspi.h"
+
 ////////////////////////////////////////////////////////////////////////////////
 
 sfdp_flash flash_table[] = SFDP_FLASH_DEVICE_TABLE;
@@ -61,6 +63,7 @@ sfdp_err sfdp_init(void) {
         return result;
     }
     
+    //Initialize SFDP configuration
     result = read_jedec_id(flash);
     if (result != SFDP_SUCCESS) {
         return result;
@@ -84,12 +87,14 @@ sfdp_err sfdp_init(void) {
 static sfdp_err read_jedec_id(sfdp_flash *flash) {
     sfdp_err result = SFDP_SUCCESS;
     const sfdp_spi *spi = &flash->spi;
-    uint8_t cmd_data[1], recv_data[3];
+    uint8_t cmd_data[1] = {SFDP_CMD_JEDEC_ID};
+    uint8_t recv_data[3] = { 0, 0, 0 };
 
     SFDP_ASSERT(flash);
 
     cmd_data[0] = SFDP_CMD_JEDEC_ID;
     result = spi->wr(spi, cmd_data, sizeof(cmd_data), recv_data, sizeof(recv_data));
+    
     if (result == SFDP_SUCCESS) {
         flash->chip.mf_id = recv_data[0];
         flash->chip.type_id = recv_data[1];
@@ -118,7 +123,7 @@ static bool read_sfdp(sfdp_flash *flash) {
     if (read_sfdp_header(flash) && read_basic_header(flash, &basic_header)) {
         return read_basic_table(flash, &basic_header);
     } else {
-        SFDP_INFO("Warning: Read SFDP parameter header information failed. The %s is not support JEDEC SFDP.", flash->name);
+        SFDP_INFO("Warning: Read SFDP parameter header information failed. The %s does not support JEDEC SFDP.", flash->name);
         return false;
     }
 }
@@ -152,7 +157,7 @@ static bool read_sfdp_header(sfdp_flash *flash) {
           header[1] == 'F' &&
           header[2] == 'D' &&
           header[3] == 'P')) {
-        SFDP_DEBUG("Error: Check SFDP signature error. It's must be 50444653h('S' 'F' 'D' 'P').");
+        SFDP_DEBUG("Error: Check SFDP signnature error. It's must be 50444653h('S' 'F' 'D' 'P').");
         return false;
     }
     sfdp->minor_rev = header[4];
@@ -347,7 +352,7 @@ static bool read_basic_table(sfdp_flash *flash, sfdp_para_header_t *basic_header
         sfdp->capacity = 1L << (table2_temp - 3);
         break;
     }
-    SFDP_DEBUG("Capacity is %ld KBytes.", sfdp->capacity/1024);
+    SFDP_DEBUG("Capacity is %ld KBytes / %ld Mbytes.", sfdp->capacity/1024, sfdp->capacity/1024/1024);
     /* get erase size and erase command  */
     for (i = 0, j = 0; i < SFDP_SFDP_ERASE_TYPE_MAX_NUM; i++) {
         if (sfdp_table[28 + 2 * i] != 0x00) {
@@ -374,7 +379,21 @@ static bool read_basic_table(sfdp_flash *flash, sfdp_para_header_t *basic_header
             }
         }
     }
-
+    
+    uint8_t read_buf[3];
+    uint8_t cmd[] = {
+        SFDP_CMD_READ_STATUS_REGISTER,
+        0x35,
+        0x15
+    };
+    flash->spi.wr(&flash->spi, &cmd[0], sizeof(cmd), &read_buf[0], 1);
+    flash->spi.wr(&flash->spi, &cmd[1], sizeof(cmd), &read_buf[1], 1);
+    flash->spi.wr(&flash->spi, &cmd[2], sizeof(cmd), &read_buf[2], 1);
+    
+    SFDP_DEBUG("Status Register-1: 0x%02x", read_buf[0]);
+    SFDP_DEBUG("Status Register-2: 0x%02x", read_buf[1]);
+    SFDP_DEBUG("Status Register-3: 0x%02x", read_buf[2]);
+    
     sfdp->available = true;
     return true;
 }

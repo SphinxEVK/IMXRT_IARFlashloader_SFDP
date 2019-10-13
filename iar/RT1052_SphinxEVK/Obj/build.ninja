@@ -1,0 +1,44 @@
+#Generating source browse information for project Flashloader_RT1052
+
+
+#Abbreviations
+cc = C$:\Program$ Files$ (x86)\IAR$ Systems\Embedded$ Workbench$ 8.3\common\bin\SourceIndexer.exe
+ll = C$:\Program$ Files$ (x86)\IAR$ Systems\Embedded$ Workbench$ 8.3\common\bin\PbdLink.exe
+bd = C$:\Program$ Files$ (x86)\IAR$ Systems\Embedded$ Workbench$ 8.3\common\bin\makeBrowseData.exe
+
+
+
+#Rules
+rule index
+  depfile = $out.dep
+  command = $cc -out=$out -f $in
+rule link
+  command = $ll -M $out $in
+rule browsedata
+  command = $bd $in -output  $out
+
+
+
+#Build steps
+build cm_backtrace.pbi : index cm_backtrace.xcl
+build flash_loader.pbi : index flash_loader.xcl
+build clock_config.pbi : index clock_config.xcl
+build fsl_clock.pbi : index fsl_clock.xcl
+build fsl_common.pbi : index fsl_common.xcl
+build fsl_flexspi.pbi : index fsl_flexspi.xcl
+build fsl_gpio.pbi : index fsl_gpio.xcl
+build fsl_lpspi.pbi : index fsl_lpspi.xcl
+build fsl_lpuart.pbi : index fsl_lpuart.xcl
+build sfdp_port.pbi : index sfdp_port.xcl
+build sfdp.pbi : index sfdp.xcl
+build device.pbi : index device.xcl
+build Flashloader_IMXRT.pbi : index Flashloader_IMXRT.xcl
+build isr.pbi : index isr.xcl
+build Flashloader_RT1052_part0.pbi : link cm_backtrace.pbi flash_loader.pbi clock_config.pbi fsl_clock.pbi
+build Flashloader_RT1052_part1.pbi : link fsl_common.pbi fsl_flexspi.pbi fsl_gpio.pbi fsl_lpspi.pbi
+build Flashloader_RT1052_part2.pbi : link fsl_lpuart.pbi sfdp_port.pbi sfdp.pbi device.pbi
+build Flashloader_RT1052_part3.pbi : link Flashloader_IMXRT.pbi isr.pbi
+build Flashloader_RT1052.pbd : link Flashloader_RT1052_part0.pbi Flashloader_RT1052_part1.pbi Flashloader_RT1052_part2.pbi Flashloader_RT1052_part3.pbi
+build Flashloader_RT1052.pbw : browsedata Flashloader_RT1052.pbd
+
+

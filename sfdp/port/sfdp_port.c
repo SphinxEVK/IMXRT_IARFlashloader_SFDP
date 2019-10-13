@@ -33,32 +33,54 @@
 #include "string.h"
 #include "fsl_lpuart.h"
 #include "fsl_lpspi.h"
+#include "fsl_gpio.h"
 #include "fsl_iomuxc.h"
 #include "clock_config.h"
 
 static char log_buf[256];
 
-void sfdp_log_debug(const char *file, const long line, const char *format, ...);
-
 ////////////////////////////////////////////////////////////////////////////////
 
 static void clock_init() {
     BOARD_BootClockRUN();
-    CLOCK_InitUsb1Pll(&(clock_usb_pll_config_t){.loopDivider = 0U});
-    CLOCK_InitUsb1Pfd(kCLOCK_Pfd0,  24);   /* Set PLL3 PFD0 clock 360MHZ. */
+    CLOCK_SetPllBypass(CCM_ANALOG, kCLOCK_PllUsb1, true);
+    CLOCK_InitUsb1Pll(&(clock_usb_pll_config_t){.loopDivider = 0U});    /* Start PLL3 PFD0 clock 480MHZ. */
+    CLOCK_InitUsb1Pfd(kCLOCK_Pfd0,  24);   /* Set PLL3 PFD0 clock to 360MHZ. */
+    
+    //CLOCK_DisableClock(kCLOCK_Lpuart1);
+    
+    CLOCK_EnableClock(kCLOCK_Lpuart1);
+    
+    CLOCK_DisableClock(kCLOCK_Lpspi2);
+    CLOCK_SetMux(kCLOCK_LpspiMux, 1);      /* Choose PLL3 PFD0 clock as lpspi2 source clock. */
+    CLOCK_SetDiv(kCLOCK_LpspiDiv, 4);      /* flexspi clock 360/(4+1)=72M. */
+    CLOCK_EnableClock(kCLOCK_Lpspi2);
+    
+    CLOCK_DisableClock(kCLOCK_FlexSpi);
     CLOCK_SetMux(kCLOCK_FlexspiMux, 0x3);  /* Choose PLL3 PFD0 clock as flexspi source clock. */
-    CLOCK_SetDiv(kCLOCK_FlexspiDiv, 2);    /* flexspi clock 120M. */
+    CLOCK_SetDiv(kCLOCK_FlexspiDiv, 4);    /* flexspi clock 360/4=90M. */
+    CLOCK_EnableClock(kCLOCK_FlexSpi);
+    
+    CLOCK_EnableClock(kCLOCK_Rom);
 }
 
 static void iomux_init() {
-    /* Set FlexSPI Pin mux && Pin config */
+
+#if defined ( SPHINX_EVK )
+    
+    /* Set LPUART1/FlexSPI2/GPIO3 Pin mux && Pin config */
     IOMUXC_SetPinMux(IOMUXC_GPIO_AD_B0_12_LPUART1_TX, 1U); 
     IOMUXC_SetPinMux(IOMUXC_GPIO_AD_B0_13_LPUART1_RX, 1U); 
     
-    IOMUXC_SetPinMux(IOMUXC_GPIO_SD_B1_06_LPSPI2_PCS0, 1U); 
-    IOMUXC_SetPinMux(IOMUXC_GPIO_SD_B1_07_LPSPI2_SCK,  1U); 
-    IOMUXC_SetPinMux(IOMUXC_GPIO_SD_B1_08_LPSPI2_SD0,  1U); 
-    IOMUXC_SetPinMux(IOMUXC_GPIO_SD_B1_09_LPSPI2_SDI,  1U); 
+    IOMUXC_SetPinMux(IOMUXC_GPIO_SD_B1_06_LPSPI2_PCS0, 1U);
+    IOMUXC_SetPinMux(IOMUXC_GPIO_SD_B1_07_LPSPI2_SCK,  1U);
+    IOMUXC_SetPinMux(IOMUXC_GPIO_SD_B1_08_LPSPI2_SD0,  1U);
+    IOMUXC_SetPinMux(IOMUXC_GPIO_SD_B1_09_LPSPI2_SDI,  1U);
+    
+    IOMUXC_SetPinMux(IOMUXC_GPIO_SD_B1_10_GPIO3_IO10,  1U);
+    IOMUXC_SetPinMux(IOMUXC_GPIO_SD_B1_11_GPIO3_IO11,  1U);
+    
+    ////////////////////////////////////////////////////////////
     
     IOMUXC_SetPinConfig(IOMUXC_GPIO_AD_B0_12_LPUART1_TX, 0x10F1);
     IOMUXC_SetPinConfig(IOMUXC_GPIO_AD_B0_13_LPUART1_RX, 0x10F1);
@@ -67,6 +89,48 @@ static void iomux_init() {
     IOMUXC_SetPinConfig(IOMUXC_GPIO_SD_B1_07_LPSPI2_SCK,  0x10F1);
     IOMUXC_SetPinConfig(IOMUXC_GPIO_SD_B1_08_LPSPI2_SD0,  0x10F1);
     IOMUXC_SetPinConfig(IOMUXC_GPIO_SD_B1_09_LPSPI2_SDI,  0x10F1);
+    
+    IOMUXC_SetPinConfig(IOMUXC_GPIO_SD_B1_10_GPIO3_IO10,  0x10F1);
+    IOMUXC_SetPinConfig(IOMUXC_GPIO_SD_B1_11_GPIO3_IO11,  0x10F1);
+    
+    ////////////////////////////////////////////////////////////
+    
+    GPIO_PinInit(GPIO3, 10U, &(gpio_pin_config_t){kGPIO_DigitalInput, 1, kGPIO_NoIntmode});
+    GPIO_PinInit(GPIO3, 11U, &(gpio_pin_config_t){kGPIO_DigitalInput, 1, kGPIO_NoIntmode});
+    
+#elif defined ( SPHINX_DAP )
+    
+    /* Set LPUART1/FlexSPI2/GPIO3 Pin mux && Pin config */
+    IOMUXC_SetPinMux(IOMUXC_GPIO_AD_B0_06_LPUART1_TX, 1U); 
+    IOMUXC_SetPinMux(IOMUXC_GPIO_AD_B0_07_LPUART1_RX, 1U); 
+    
+    IOMUXC_SetPinMux(IOMUXC_GPIO_SD_B1_06_LPSPI2_PCS0, 1U);
+    IOMUXC_SetPinMux(IOMUXC_GPIO_SD_B1_07_LPSPI2_SCK,  1U);
+    IOMUXC_SetPinMux(IOMUXC_GPIO_SD_B1_08_LPSPI2_SDO,  1U);
+    IOMUXC_SetPinMux(IOMUXC_GPIO_SD_B1_09_LPSPI2_SDI,  1U);
+    
+    IOMUXC_SetPinMux(IOMUXC_GPIO_AD_B1_14_GPIO1_IO30,  1U);
+    IOMUXC_SetPinMux(IOMUXC_GPIO_AD_B1_15_GPIO1_IO31,  1U);
+    
+    ////////////////////////////////////////////////////////////
+    
+    IOMUXC_SetPinConfig(IOMUXC_GPIO_AD_B0_06_LPUART1_TX, 0x10F1);
+    IOMUXC_SetPinConfig(IOMUXC_GPIO_AD_B0_07_LPUART1_RX, 0x10F1);
+    
+    IOMUXC_SetPinConfig(IOMUXC_GPIO_SD_B1_06_LPSPI2_PCS0, 0x10F1);
+    IOMUXC_SetPinConfig(IOMUXC_GPIO_SD_B1_07_LPSPI2_SCK,  0x10F1);
+    IOMUXC_SetPinConfig(IOMUXC_GPIO_SD_B1_08_LPSPI2_SDO,  0x10F1);
+    IOMUXC_SetPinConfig(IOMUXC_GPIO_SD_B1_09_LPSPI2_SDI,  0x10F1);
+    
+    IOMUXC_SetPinConfig(IOMUXC_GPIO_AD_B1_14_GPIO1_IO30,  0x10F1);
+    IOMUXC_SetPinConfig(IOMUXC_GPIO_AD_B1_15_GPIO1_IO31,  0x10F1);
+    
+    ////////////////////////////////////////////////////////////
+    
+    GPIO_PinInit(GPIO1, 30U, &(gpio_pin_config_t){kGPIO_DigitalOutput, 1, kGPIO_NoIntmode});
+    GPIO_PinInit(GPIO1, 31U, &(gpio_pin_config_t){kGPIO_DigitalOutput, 1, kGPIO_NoIntmode});
+    
+#endif
 }
 
 static void lpuart_init() {
@@ -78,12 +142,12 @@ static void lpuart_init() {
     lpuart_config.enableTx = true;
     lpuart_config.enableRx = true;
     
-    LPUART_Init(LPUART1, &lpuart_config, ((CLOCK_GetPllFreq(kCLOCK_PllUsb1) / 6U) / (CLOCK_GetDiv(kCLOCK_UartDiv) + 1U)));
+    LPUART_Init(LPUART1, &lpuart_config, ((CLOCK_GetPllFreq(kCLOCK_PllUsb1)/6U) / (CLOCK_GetDiv(kCLOCK_UartDiv) + 1U)));
 }
 
 static void lpspi_init() {
-    lpspi_master_config_t lpspi_config = {
-        .baudRate = 1000000U,
+    static lpspi_master_config_t lpspi_config = {
+        .baudRate = 36*1000*1000U,
         .bitsPerFrame = 8,
         .cpol = kLPSPI_ClockPolarityActiveHigh,
         .cpha = kLPSPI_ClockPhaseFirstEdge,
@@ -91,14 +155,17 @@ static void lpspi_init() {
         .whichPcs = kLPSPI_Pcs0,
         .pcsActiveHighOrLow = kLPSPI_PcsActiveLow,
         .pinCfg = kLPSPI_SdiInSdoOut,
-        .dataOutConfig = kLpspiDataOutRetained,
+        .dataOutConfig = kLpspiDataOutTristate,
     };
 
-    lpspi_config.pcsToSckDelayInNanoSec = 1000000000 / lpspi_config.baudRate;
-    lpspi_config.lastSckToPcsDelayInNanoSec = 1000000000 / lpspi_config.baudRate;
-    lpspi_config.betweenTransferDelayInNanoSec = 1000000000 / lpspi_config.baudRate;
-
-    LPSPI_MasterInit(LPSPI2, &lpspi_config, CLOCK_GetFreq(kCLOCK_Usb1PllPfd0Clk)/4U);
+    lpspi_config.pcsToSckDelayInNanoSec = 1000*1000*1000 / lpspi_config.baudRate;
+    lpspi_config.lastSckToPcsDelayInNanoSec = 1000*1000*1000 / lpspi_config.baudRate;
+    lpspi_config.betweenTransferDelayInNanoSec = 1000*1000*1000 / lpspi_config.baudRate;
+    
+    const lpspi_master_config_t *p_lpspi_config = &lpspi_config;
+    
+    LPSPI_Deinit(LPSPI2);
+    LPSPI_MasterInit(LPSPI2, p_lpspi_config, CLOCK_GetFreq(kCLOCK_Usb1PllPfd0Clk)/(CLOCK_GetDiv(kCLOCK_LpspiDiv) + 1U));
 }
 
 static void spi_lock(const sfdp_spi *spi) {
@@ -111,7 +178,7 @@ static void spi_unlock(const sfdp_spi *spi) {
 
 /* about 100 microsecond delay */
 static void retry_delay_100us(void) {
-    volatile uint32_t delay = 60000;
+    volatile uint32_t delay = (CLOCK_GetFreq(kCLOCK_CpuClk)/(10*1000));
     while(delay--);
 }
 
@@ -123,24 +190,21 @@ static void retry_delay_100us(void) {
 static sfdp_err spi_write_read(const sfdp_spi *spi, const uint8_t *write_buf, size_t write_size, uint8_t *read_buf,
         size_t read_size) {
     sfdp_err result = SFDP_SUCCESS;
+    static uint8_t lpspiXfer_buf[48];
     
-    static uint8_t tx_buf[64];
-    static uint8_t rx_buf[64];
+    memset(lpspiXfer_buf, SFDP_DUMMY_DATA, (sizeof(lpspiXfer_buf)/sizeof(uint8_t)));
     
-    memcpy((uint8_t *)tx_buf, (uint8_t *)write_buf, write_size);
-    for(size_t i=write_size; i<write_size+read_size; i++) {
-        tx_buf[i] = SFDP_DUMMY_DATA;
-    }
+    memcpy((uint8_t *)lpspiXfer_buf, (uint8_t *)write_buf, write_size);
     
     lpspi_transfer_t lpspiXfer = {
-        .rxData = (uint8_t *)rx_buf,
-        .txData = (uint8_t *)tx_buf,
+        .rxData = (uint8_t *)lpspiXfer_buf,
+        .txData = (uint8_t *)lpspiXfer_buf,
         .dataSize = write_size+read_size,
         .configFlags = kLPSPI_MasterPcs0|kLPSPI_MasterPcsContinuous,
     };
     
-    LPSPI_MasterTransferBlocking(LPSPI2, &lpspiXfer);
-    memcpy((uint8_t *)read_buf, (uint8_t *)rx_buf+write_size, read_size);
+    result = (sfdp_err)LPSPI_MasterTransferBlocking(LPSPI2, &lpspiXfer);
+    memcpy((uint8_t *)read_buf, (uint8_t *)(lpspiXfer_buf+write_size), read_size);
     
     return result;
 }

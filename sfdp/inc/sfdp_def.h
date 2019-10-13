@@ -375,6 +375,15 @@ typedef struct {
     }DWORD15;
     
     union {
+        struct {
+            /*LSB*/
+            uint32_t enter_4bytes_addressing:8;
+            uint32_t exit_4bytes_addressing:8;
+            uint32_t soft_reset_and_sequence_support:8;
+            uint32_t :1;
+            uint32_t volatile_or_not_and_WE_instruction_for_SR1:7;
+            /*MSB*/
+        };
         uint32_t value;
     }DWORD16;
     

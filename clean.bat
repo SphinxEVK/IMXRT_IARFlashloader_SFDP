@@ -2,7 +2,7 @@
 
 ::-----::
 set iar_path=%~dp0\iar\
-set param="*.browse" and "*.linf" and "*.o" and "*.pbi" and "*.pbd" and "*.xcl" and "*.out" and "*.hex" and "*.bin" and "*.pbw"
+set param="*.browse" and "*.linf" and "*.o" and "*.pbi" and "*.pbd" and "*.xcl" and "*.out" and "*.hex" and "*.bin" and "*.pbw" and "cstat.db"
 rem 不能误删除flashloader，将flashloader视作*.out的例外
 ::-----::
 
